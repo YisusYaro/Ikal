@@ -127,7 +127,6 @@ export class Scene extends Phaser.Scene {
 
   update(time: number, delta: number) {
     this.listenCursor(this.myCharacter, this.myCursor);
-
   }
 
 
