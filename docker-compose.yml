@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  
+  angular-service:
+    build:
+      context: .
+      dockerfile: ./phaser-angular-app/Dockerfile
+    container_name: angular-container
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./phaser-angular-app:/usr/src/app
+    stdin_open: true
