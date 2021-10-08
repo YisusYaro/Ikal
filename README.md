@@ -1,6 +1,6 @@
-# PhaserAngularNest
+# Ikal
 
-_Template for developing app using phaser and angular_
+_Videojuego para aprender sobre la historía de México 🇲🇽_
 
 ### Installation 🔧
 
@@ -34,8 +34,11 @@ docker exec -it angular-container ng serve --host=0.0.0.0 --disable-host-check
 
 ## Devs ✒️
 
+* **Ángel Kevin Velázquez Barraza** - *Dev* 
+* **Carlos Daniel Cruz Pino** - *Dev* 
+* **Emmanuel Cortés Rosas** - *Dev* 
+* **Esmeralda Fonseca Sebastián** - *Dev* 
 * **Jesús Alejandro Yahuitl Rodríguez** - *Dev* - [YisusYaro](https://github.com/YisusYaro/)
-
 
 ## License 📄
 
