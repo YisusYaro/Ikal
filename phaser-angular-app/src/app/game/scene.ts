@@ -24,9 +24,8 @@ export class Scene extends Phaser.Scene {
 
   preload() {
     this.load.path = "../../assets/";
-    this.load.image('bg', 'bg.png');
-    this.load.image('demon', 'demon.png');
-    this.load.image('knight', 'knight.png');
+    this.load.image('bg', 'bg.jpg');
+    this.load.image('mexican', 'mexican.png');
   }
 
   getDistance(x1: number, y1: number, x2: number, y2: number) {
@@ -114,15 +113,12 @@ export class Scene extends Phaser.Scene {
     //bg
 
     this.bg = this.add.image(this.scale.width / 2, this.scale.height / 2, 'bg');
+    this.bg.setScale(1);
     //characters
-    if (this.character! == 'demon') {
-      this.myCharacter = this.add.image(100, 250, 'demon');
-      this.myCharacter.scale = 2;
-    }
-    if (this.character! == 'knight') {
-      this.myCharacter = this.add.image(200, 250, 'knight');
-      this.myCharacter.scale = 2;
-    }
+
+    this.myCharacter = this.add.image(300, 560, 'mexican');
+    this.myCharacter.setScale(1);
+
   }
 
   update(time: number, delta: number) {
