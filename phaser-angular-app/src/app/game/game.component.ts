@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import Phaser from 'phaser';
-import { Scene } from './scene';
+import { Title } from './scenes/title';
 import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { Renderer2 } from '@angular/core';
+import { Independency } from './scenes/independency';
 
 @Component({
   selector: 'app-game',
@@ -22,22 +23,27 @@ export class GameComponent implements OnInit, OnDestroy {
 
   constructor() {
 
-
-
-
   }
 
   ngOnInit(): void {
-    this.innerHeight = window.innerHeight;
-    this.innerWidth = window.innerWidth;
-
 
     this.config = {
-      width: this.innerWidth,
-      height: this.innerHeight,
-      scene: [Scene],
-      parent: 'game-container',
+      scene: [Title, Independency],
       pixelArt: true,
+      physics: {
+        default: 'arcade',
+        arcade: {
+          gravity: { y: 300 },
+          debug: false 
+        }
+      },
+      scale: {
+        parent: 'game-container',
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 640,
+        height: 360
+      }
     };
 
     this.phaserGame = new Phaser.Game(this.config);

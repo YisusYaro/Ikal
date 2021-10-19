@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "paco_side_anim",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "paco_side",
+                    "frame": "paco_side_0"
+                },
+                {
+                    "key": "paco_side",
+                    "frame": "paco_side_1"
+                },
+                {
+                    "key": "paco_side",
+                    "frame": "paco_side_2"
+                },
+                {
+                    "key": "paco_side",
+                    "frame": "paco_side_3"
+                }
+            ]
+        }
+    ]
+}
