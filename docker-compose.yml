@@ -3,7 +3,7 @@ version: '3.8'
 services:
   
   ikal-game:
-    image: jesusyaro.com/ikal
+    image: docker.jesusyaro.com/ikal
     build:
       context: .
       dockerfile: ./phaser-angular-app/Dockerfile
