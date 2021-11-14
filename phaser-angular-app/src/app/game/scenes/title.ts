@@ -21,7 +21,8 @@ export class Title extends Phaser.Scene {
     this.isFirstClick = true;
   }
 
-  ngOnInit(): void {
+  init(): void {
+    this.isFirstClick = true;
   }
 
   preload() {

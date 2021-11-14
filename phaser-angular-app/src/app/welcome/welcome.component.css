@@ -43,7 +43,7 @@ html {
 
 body, p {
 	color: #6b747b; 
-	font: 400 1rem/1.625rem "Open Sans", sans-serif;
+	font: 400 1rem/1.625rem "commodore", commodore;
 }
 
 h1 {
@@ -51,7 +51,7 @@ h1 {
 	font-weight: 700;
 	font-size: 2.5rem;
 	line-height: 3.25rem;
-	font-family: "Poppins"
+	font-family: "commodore"
 }
 
 h2 {
@@ -59,7 +59,7 @@ h2 {
 	font-weight: 700;
 	font-size: 2rem;
 	line-height: 2.5rem;
-	font-family: "Poppins"
+	font-family: "commodore"
 }
 
 h3 {
@@ -67,7 +67,7 @@ h3 {
 	font-weight: 700;
 	font-size: 1.75rem;
 	line-height: 2.25rem;
-	font-family: "Poppins"
+	font-family: "commodore"
 }
 
 h4 {
@@ -75,7 +75,7 @@ h4 {
 	font-weight: 700;
 	font-size: 1.5rem;
 	line-height: 2rem;
-	font-family: "Poppins"
+	font-family: "commodore"
 }
 
 h5 {
@@ -83,7 +83,7 @@ h5 {
 	font-weight: 700;
 	font-size: 1.25rem;
 	line-height: 1.625rem;
-	font-family: "Poppins"
+	font-family: "commodore"
 }
 
 h6 {
@@ -91,7 +91,7 @@ h6 {
 	font-weight: 700;
 	font-size: 1rem;
 	line-height: 1.375rem;
-	font-family: "Poppins"
+	font-family: "commodore"
 }
 
 .p-large {
@@ -853,7 +853,7 @@ input[type='checkbox'] {
 	font-weight: 600;
 	font-size: 3rem;
 	line-height: 2.625rem;
-	font-family: "Poppins";
+	font-family: "commodore";
 }
 
 .basic-5 .media-body {

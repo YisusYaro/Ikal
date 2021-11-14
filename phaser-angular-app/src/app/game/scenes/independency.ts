@@ -23,6 +23,8 @@ export class Independency extends Phaser.Scene {
 
   principalText?: GameObjects.BitmapText;
 
+  isPlaying: Boolean;
+
 
 
   constructor() {
@@ -31,9 +33,15 @@ export class Independency extends Phaser.Scene {
     this.bells = new Map();
     this.numberLifes = 5;
     this.numberBells = 0;
+    this.isPlaying = true;
   }
 
-  ngOnInit(): void {
+  init() {
+    this.axes = new Map();
+    this.bells = new Map();
+    this.numberLifes = 5;
+    this.numberBells = 0;
+    this.isPlaying = true;
   }
 
   preload() {
@@ -105,7 +113,6 @@ export class Independency extends Phaser.Scene {
 
     this.music.play();
 
-
     // this.axe.setCollideWorldBounds(true);
     // this.axe.setBounce(0.2);
 
@@ -164,6 +171,9 @@ export class Independency extends Phaser.Scene {
     this.lifesText!.text = `Vidas ${this.numberLifes}`;
 
     if (this.numberLifes == 0) {
+      this.isPlaying = false;
+      this.music!.stop();
+      alert('Perdiste :(');
       this.scene.start('Title');
     }
 
@@ -175,7 +185,9 @@ export class Independency extends Phaser.Scene {
     this.bellsText!.text = `Campanas ${this.numberBells}`;
 
     if (this.numberBells == 5) {
-      alert('ganaste');
+      this.isPlaying = false;
+      this.music!.stop();
+      alert('Ganaste :)');
       this.scene.start('Title');
     }
   }
@@ -191,9 +203,9 @@ export class Independency extends Phaser.Scene {
 
   async createAxes() {
 
-    while (true) {
+    while (true && this.isPlaying) {
       await this.sleep(this.randomIntFromInterval(500, 2000));
-      if (this.axes) {
+      if (this.axes && this.isPlaying) {
         const keyAxe = `axe${this.randomIntFromInterval(0, 1000)}`;
         this.axes.set(keyAxe, (this.physics.add.sprite(this.getRandomValidXPosition(), 20, 'axe')));
         this.axes.get(keyAxe)!.setScale(4);
@@ -207,7 +219,7 @@ export class Independency extends Phaser.Scene {
         });
         this.followPaco(this.axes.get(keyAxe)!);
         this.physics.add.collider(this.axes.get(keyAxe)!, this.platforms!, () => { this.removePhysicsSpriteFromItsMap(keyAxe, this.axes); });
-        this.physics.add.collider(this.axes.get(keyAxe)!, this.paco!, () => { this.handleAxeCollision(keyAxe); this.removePhysicsSpriteFromItsMap(keyAxe, this.axes); console.log(this.axes); });
+        this.physics.add.collider(this.axes.get(keyAxe)!, this.paco!, () => { this.handleAxeCollision(keyAxe); this.removePhysicsSpriteFromItsMap(keyAxe, this.axes); });
       }
     }
 
@@ -226,9 +238,9 @@ export class Independency extends Phaser.Scene {
 
   async createBells() {
 
-    while (true) {
+    while (true && this.isPlaying) {
       await this.sleep(this.randomIntFromInterval(500, 2000));
-      if (this.bells) {
+      if (this.bells && this.isPlaying) {
         const keyBell = `bell${this.randomIntFromInterval(0, 1000)}`;
         this.bells.set(keyBell, (this.physics.add.sprite(this.getRandomValidXPosition(), 20, 'bell')));
         this.bells.get(keyBell)!.setScale(0.3);
@@ -243,7 +255,7 @@ export class Independency extends Phaser.Scene {
         });
         this.getAwayFromPaco(this.bells.get(keyBell)!);
         this.physics.add.collider(this.bells.get(keyBell)!, this.platforms!, () => { this.removePhysicsSpriteFromItsMap(keyBell, this.bells); });
-        this.physics.add.collider(this.bells.get(keyBell)!, this.paco!, () => { this.handleBellCollision(keyBell); this.removePhysicsSpriteFromItsMap(keyBell, this.bells); console.log(this.bells); });
+        this.physics.add.collider(this.bells.get(keyBell)!, this.paco!, () => { this.handleBellCollision(keyBell); this.removePhysicsSpriteFromItsMap(keyBell, this.bells); });
       }
     }
 
@@ -255,15 +267,9 @@ export class Independency extends Phaser.Scene {
 
   update(time: number, delta: number) {
 
-
-
-
     if (this.paco) {
       this.listenCursor(this.paco, this.myCursor);
     }
-
-
-
 
   }
 
