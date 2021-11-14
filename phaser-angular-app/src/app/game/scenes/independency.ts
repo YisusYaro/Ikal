@@ -9,6 +9,7 @@ export class Independency extends Phaser.Scene {
   background?: GameObjects.Image;
 
   music?: Phaser.Sound.BaseSound;
+  independency?: Phaser.Sound.BaseSound;
   paco?: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
   numberLifes: number;
   numberBells: number;
@@ -47,6 +48,7 @@ export class Independency extends Phaser.Scene {
   preload() {
     this.load.path = "../../assets/";
     this.load.audio('music', 'audio/jarabe-tapatio.mp3');
+    this.load.audio('independency', 'audio/independency.mp3');
     this.load.image('night-sky', 'phaser_images/night-sky.png');
 
     this.load.image('ground', 'phaser_images/ground.png');
@@ -110,6 +112,9 @@ export class Independency extends Phaser.Scene {
 
     const musicVolume = 0.09;
     this.music = this.sound.add('music', { volume: musicVolume, loop: true });
+
+    const independencyVolume = 0.5;
+    this.independency = this.sound.add('independency', { volume: independencyVolume, loop: false });
 
     this.music.play();
 
@@ -187,6 +192,7 @@ export class Independency extends Phaser.Scene {
     if (this.numberBells == 5) {
       this.isPlaying = false;
       this.music!.stop();
+      this.independency!.play();
       alert('Ganaste :)');
       this.scene.start('Title');
     }
